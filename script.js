@@ -14,7 +14,7 @@ const questions = [
             {text: "Nhi pata", correct: false},
             {text: "ee ki matra", correct: true},
             {text: "Khelega Free Fiirree", correct: false},
-            {text: "Koi boltai ree", correct: true},
+            {text: "Koi boltai ree", correct: false},
         ]
     },
     {
@@ -23,7 +23,7 @@ const questions = [
             {text: "Rahul Gandhi", correct: false},
             {text: "Pappu", correct: true},
             {text: "Yogi", correct: false},
-            {text: "Ayega toh modi he..", correct: true},
+            {text: "Ayega toh modi he..", correct: false},
         ]
     },
     {
@@ -32,7 +32,7 @@ const questions = [
             {text: "haan bhai", correct: false},
             {text: "Itna chubhne lga hu", correct: true},
             {text: "Nikal tori maaye ke", correct: false},
-            {text: "Passion follow kruga", correct: true},
+            {text: "Passion follow kruga", correct: false},
         ]
     },
     
@@ -95,9 +95,17 @@ function selectAnswer(e){
     nextButton.style.display = "block";
 }
 
+function showScore(){
+    resetState();
+    questionElement.innerHTML = `You Scored ${score} out of ${questions.length}! `
+    nextButton.innerHTML = "Play Again";
+    nextButton.style.display = "block";
+}
+
+
 function handleNextButton (){
     currentQuestionIndex++;
-    if(currentQuestionIndex < questionslength){
+    if(currentQuestionIndex < questions.length){
         showQuestion();
     }else {
         showScore();
